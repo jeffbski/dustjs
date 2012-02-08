@@ -1,7 +1,7 @@
 var path   = require('path'),
     fs     = require('fs'),
     Script = process.binding('evals').Script,
-    dust   = require('../lib/dust'),
+    dust   = require('../'),
     root   = path.join(path.dirname(__filename), "..");
 
 var src = fs.readFileSync(path.join(root, 'docs/index.dust.html'), 'utf8');

@@ -1,11 +1,14 @@
 {
   "name"          : "dust",
-  "version"       : "0.3.0",
+  "version"       : "0.3.0amd",
   "description"   : "Asynchronous templates for the browser and node.js",
   "author"        : "Aleksander Williams",
-  "contributors"  : [],
+  "contributors"  : [ { "name": "Jeff Barczewski" } ],
   "url"           : "http://akdubya.github.com/dustjs/",
   "keywords"      : ["templates", "views"],
-  "main"          : "./lib/dust",
+  "main"          : "./lib/server",
+  "devDependencies" : {
+    "pegjs": "~0.6.2"
+  },
   "scripts"       : { "test": "make test" }
 }

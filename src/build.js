@@ -1,4 +1,4 @@
-var peg  = require('peg'),
+var peg  = require('pegjs'),
     fs   = require('fs'),
     path = require('path'),
     root = path.join(path.dirname(__filename), "..");

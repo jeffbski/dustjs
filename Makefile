@@ -41,6 +41,8 @@ define HEADER
 // Copyright (c) 2010, Aleksander Williams
 // Released under the MIT License.
 //
+// Modifications by Jeff Barczewski
+//
 
 endef
 
