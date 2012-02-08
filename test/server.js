@@ -1,5 +1,5 @@
 var uutest    = require('./uutest'),
-    dust      = require('../lib/dust'),
+    dust      = require('../lib/server'),
     tests     = require('./examples').dustExamples,
     coreSetup = require('./core').coreSetup;
 
