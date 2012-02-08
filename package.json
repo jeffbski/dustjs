@@ -8,7 +8,7 @@
   "keywords"      : ["templates", "views"],
   "main"          : "./lib/server",
   "devDependencies" : {
-    "pegjs": "~0.6.2"
+    "pegjs": "0.6.1"
   },
   "scripts"       : { "test": "make test" }
 }
