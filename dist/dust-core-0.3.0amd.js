@@ -9,6 +9,9 @@
 //
 
 
+/*global define:true */
+/*jshint white:false evil:true latedef:true eqeqeq:false asi:true */
+  
 
 
 define('dust',[],function () {
@@ -137,7 +140,7 @@ define('dust',[],function () {
     while(ctx) {
       if (ctx.isObject) {
         value = ctx.head[key];
-        if (!(value === undefined)) {
+        if (value !== undefined) {
           return value;
         }
       }
@@ -188,6 +191,7 @@ define('dust',[],function () {
     var blocks = this.blocks;
 
     if (locals) {
+      var newBlocks;
       if (!blocks) {
         newBlocks = [locals];
       } else {
@@ -215,12 +219,14 @@ define('dust',[],function () {
   Stub.prototype.flush = function() {
     var chunk = this.head;
 
+    var emptyFn = function () { };
+
     while (chunk) {
       if (chunk.flushable) {
         this.out += chunk.data;
       } else if (chunk.error) {
         this.callback(chunk.error);
-        this.flush = function() {};
+        this.flush = emptyFn;
         return;
       } else {
         return;
@@ -238,12 +244,14 @@ define('dust',[],function () {
   Stream.prototype.flush = function() {
     var chunk = this.head;
 
+    var emptyFn = function () { };
+
     while(chunk) {
       if (chunk.flushable) {
         this.emit('data', chunk.data);
       } else if (chunk.error) {
         this.emit('error', chunk.error);
-        this.flush = function() {};
+        this.flush = emptyFn;
         return;
       } else {
         return;
