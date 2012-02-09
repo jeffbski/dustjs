@@ -13,8 +13,8 @@ bench:
 #
 # Build the docs
 #
-docs:
-	node docs/build.js
+#docs:
+#	node docs/build.js
 
 #
 # Build the parser
@@ -41,7 +41,7 @@ define HEADER
 // Copyright (c) 2010, Aleksander Williams
 // Released under the MIT License.
 //
-// Modifications by Jeff Barczewski
+// Modifications by Jeff Barczewski, 2012
 //
 
 endef

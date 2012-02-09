@@ -1,9 +1,15 @@
 <html>
 <head>
-  <script type="text/javascript" src="../dist/dust-full-0.3.0amd.min.js"></script>
+  <script type="text/javascript" src="../vendor/requirejs/require.min.js"></script>
   <script type="text/javascript">
-    require(["lib/dust"], function (dust) {
-      console.log('dust:' + dust);
+    require.config({
+      paths: {
+        "dust": "../dist/dust-full-0.3.0amd.min"
+      }
+    });
+
+    require(["dust"], function (dust) {
+      console.log('dust:', dust);
     });
   </script>
 </head>
