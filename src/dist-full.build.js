@@ -1,10 +1,8 @@
 ({
   baseUrl: "../",
   optimize: "none",
-  wrap: false,
-  name: "vendor/almond.js",
+  name: "dust",
   include: [
-    "dust",
     "compiler",
     "parser"
   ],

@@ -1,7 +1,6 @@
 ({
   baseUrl: "../",
   optimize: "none",
-  wrap: false,
   name: "dust",
   paths: {
     "dust": "lib/dust"

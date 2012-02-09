@@ -11,7 +11,7 @@ bench:
 	node benchmark/server.js
 
 #
-# Build the docs
+# Build the docs - currently doesn't work for some reason
 #
 #docs:
 #	node docs/build.js
@@ -90,6 +90,8 @@ min: dust
 	@@echo "$$HEADER" > ${FULL_MIN}
 	@@minmin ${CORE} >> ${CORE_MIN}
 	@@minmin ${FULL} >> ${FULL_MIN}
+
+dist-all: dist-core dist-full min-core min-full
 
 clean:
 	git rm dist/*
