@@ -27,7 +27,7 @@ parser:
 #
 
 SRC = lib
-VERSION = ${shell cat package.json | grep version | grep -o '[0-9]\.[0-9]\.[0-9]\+'}
+VERSION = ${shell cat package.json | grep version | grep -o '[0-9]\.[0-9]\.[0-9a-zA-Z]\+'}
 CORE = dist/dust-core-${VERSION}.js
 CORE_MIN = dist/dust-core-${VERSION}.min.js
 FULL = dist/dust-full-${VERSION}.js
@@ -48,18 +48,41 @@ endef
 
 export HEADER
 
-dust:
+dist-core:
 	@@mkdir -p dist
+	node node_modules/.bin/r.js -o src/dist-core.build.js out=${CORE}.tmp
 	@@touch ${CORE}
 	@@echo "$$HEADER" > ${CORE}
-	@@cat ${SRC}/dust.js >> ${CORE}
+	@@cat ${CORE}.tmp >> ${CORE}
+	@@rm ${CORE}.tmp
 	@@echo ${CORE} built
+
+dist-full:
+	@@mkdir -p dist
+	node node_modules/.bin/r.js -o src/dist-full.build.js out=${FULL}.tmp
 	@@touch ${FULL}
 	@@echo "$$HEADER" > ${FULL}
-	@@cat ${SRC}/dust.js\
-	      ${SRC}/compiler.js\
-	      ${SRC}/parser.js >> ${FULL}
+	@@cat ${FULL}.tmp >> ${FULL}
+	@@rm ${FULL}.tmp
 	@@echo ${FULL} built
+
+min-core:
+	@@mkdir -p dist
+	node node_modules/.bin/r.js -o src/dist-core.build.js out=${CORE_MIN}.tmp optimize=uglify
+	@@touch ${CORE_MIN}
+	@@echo "$$HEADER" > ${CORE_MIN}
+	@@cat ${CORE_MIN}.tmp >> ${CORE_MIN}
+	@@rm ${CORE_MIN}.tmp
+	@@echo ${CORE_MIN} built
+
+min-full:
+	@@mkdir -p dist
+	node node_modules/.bin/r.js -o src/dist-full.build.js out=${FULL_MIN}.tmp optimize=uglify
+	@@touch ${FULL_MIN}
+	@@echo "$$HEADER" > ${FULL_MIN}
+	@@cat ${FULL_MIN}.tmp >> ${FULL_MIN}
+	@@rm ${FULL_MIN}.tmp
+	@@echo ${FULL_MIN} built
 
 min: dust
 	@@echo minifying...
@@ -75,6 +98,6 @@ release: clean docs min
 	git add dist/*
 	git commit -a -m "release v${VERSION}"
 	git tag -a -m "version v${VERSION}" v${VERSION}
-	npm publish
+
 
 .PHONY: test docs bench parser
