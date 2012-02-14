@@ -3,13 +3,15 @@
   optimize: "none",
   name: "dust",
   include: [
-    "compiler",
-    "parser"
+     "core",
+     "compiler",
+     "parser"
   ],
   paths: {
-    "dust": "lib/dust",
+    "core": "lib/core",
     "compiler": "lib/compiler",
-    "parser": "lib/parser"  
+    "parser": "lib/parser",  
+    "dust": "lib/full"
   },
   out: "../dist/dust-full.js"
 })
