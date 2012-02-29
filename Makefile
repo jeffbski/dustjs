@@ -93,10 +93,10 @@ min: dust
 
 dist-all: dist-core dist-full min-core min-full
 
-clean:
+dist-clean:
 	git rm dist/*
 
-release: clean docs min
+release: dist-clean docs min
 	git add dist/*
 	git commit -a -m "release v${VERSION}"
 	git tag -a -m "version v${VERSION}" v${VERSION}
