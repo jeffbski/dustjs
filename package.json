@@ -9,7 +9,7 @@
   "main"          : "./lib/server",
   "devDependencies" : {
     "pegjs": "0.6.1",
-    "requirejs": "~1.0.6"
+    "requirejs": "~1.0.7"
   },
   "scripts"       : { "test": "make test" }
 }
