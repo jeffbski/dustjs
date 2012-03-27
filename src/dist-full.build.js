@@ -1,17 +1,21 @@
 ({
-  baseUrl: "../",
+  baseUrl: "..",
   optimize: "none",
+  packages: [
+    {
+      name: "dust",
+      location: "lib",
+      main: "full"
+    }
+  ],
+  paths: {
+    "compiler": "lib/compiler",
+    "parser": "lib/parser"
+  },  
   name: "dust",
   include: [
-     "core",
      "compiler",
      "parser"
   ],
-  paths: {
-    "core": "lib/core",
-    "compiler": "lib/compiler",
-    "parser": "lib/parser",  
-    "dust": "lib/full"
-  },
   out: "../dist/dust-full.js"
 })

@@ -14,7 +14,7 @@
   
 
 
-define('core',[],function () {
+define('dust',[],function () {
 
   var dust = {};
 
@@ -532,17 +532,3 @@ define('core',[],function () {
   return dust;
 });
 
-
-/*global define:true */
-
-
-
-/**
-   load dust only with core functionality
-  */
-
-define('dust',['core'],
-       function (dust) {
-
-  return dust;
-});

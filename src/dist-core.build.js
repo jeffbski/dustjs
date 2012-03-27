@@ -1,13 +1,15 @@
 ({
-  baseUrl: "../",
+  baseUrl: "..",
   optimize: "none",
-  name: "dust",
-  include: [
-     "core"
+  packages: [
+    {
+      name: "dust",
+      location: "lib",
+      main: "core"
+    }
   ],
   paths: {
-    "core": "lib/core",
-    "dust": "lib/dust"
   },
+  name: "dust",
   out: "../dist/dust-core.js"
 })
